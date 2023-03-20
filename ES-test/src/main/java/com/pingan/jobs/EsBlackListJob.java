@@ -10,22 +10,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
 
 
-@Service
+
 public class EsBlackListJob {
 
-    @Resource
+    @Autowired
     private RestHighLevelClient esClient;
 
-    @Resource
+    @Autowired
     private BlackListDao blackListDao;
 
-    @Resource
+    @Autowired
     private EsListDao esListDao;
 
     private static final Integer PAGE_SIZE = 200;
