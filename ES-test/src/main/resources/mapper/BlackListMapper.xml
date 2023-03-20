@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pingan.dao.BlackListDao">
+
+    <resultMap id="blackUser" type="com.pingan.vo.BlackUser">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="phone" column="phone"></result>
+        <result property="discription" column="discription"></result>
+    </resultMap>
+
+    <select id="queryBlackUsers" resultType="com.pingan.vo.BlackUser" resultMap="blackUser">
+        select * from blacklist limit #{startNum},#{pageSize};
+    </select>
+
+    <select id="countBlackUsersNum" resultType="integer">
+        select count(1) from blacklist;
+    </select>
+</mapper>
